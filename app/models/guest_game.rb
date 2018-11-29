@@ -1,0 +1,2 @@
+class GuestGame < ApplicationRecord
+end

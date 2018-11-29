@@ -10,7 +10,7 @@ class Api::V1::UsersController < ApplicationController
         render json: @user
     end
   
-    def signin
+    def login
       @user = User.find_by(params[:username])
       if @user && @user.authenticate(params[:password])
         render json: {username: @user.username, id: @user.id}

@@ -1,19 +1,19 @@
 class Api::V1::GamesController < ApplicationController
     
     def index
-        @users = User.all
-        render json: @users
+        @games = Game.all
+        render json: @games
     end
   
     def show
-        @user = User.find(params[:id])
-        render json: @user
+        @game = Game.find(params[:id])
+        render json: @game
     end
 
     def create
-        @user = User.create(user_params)
-        if @user.valid?
-            render json: @user
+        @game = Game.create(game_params)
+        if @game.valid?
+            render json: @game
         else
             render json: {error: 'Error - Unable to create Game.'}, status: 400
         end
@@ -31,7 +31,7 @@ class Api::V1::GamesController < ApplicationController
         @game = Game.find(params[:id])
         if @game
             @game.destroy
-            render json: {message: "Playlist Song successfully deleted."}
+            render json: {message: "Game successfully deleted."}
         else
             render json: {error: "Unable to delete Game"}, status: 400
         end
@@ -39,8 +39,8 @@ class Api::V1::GamesController < ApplicationController
   
     private
 
-    def user_params
-    params.require(:user).permit(:canvas, :lives, :win_streak)
+    def game_params
+    params.require(:game).permit(:canvas, :lives, :win_streak)
     end
   
   
