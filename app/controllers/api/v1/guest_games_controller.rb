@@ -22,6 +22,6 @@ class Api::V1::GuestGamesController < ApplicationController
     private
 
     def guest_game_params
-        params.require(:guest_game).permit(:canvas)
+        params.require(:guest_game).permit(:canvas, :name)
     end
 end
