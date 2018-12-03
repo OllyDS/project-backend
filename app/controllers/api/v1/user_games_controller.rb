@@ -19,4 +19,11 @@ class Api::V1::UserGamesController < ApplicationController
         end
     end
 
+    private
+
+    def user_game_params
+      params.require(:user_game).permit(:user_id, :game_id, :artist, :lives)
+    end
+
+
 end # End of the Controller
