@@ -13,7 +13,7 @@ class Api::V1::UsersController < ApplicationController
     def login
       @user = User.find_by(username: params[:username])
       if @user && @user.authenticate(params[:password])
-        render json: {username: @user.username, token: issue_token({id: @user.id})}
+        render json: {username: @user.username, token: issue_token({id: @user.id}), id: @user.id}
       else
         render json: {error: 'Username/password invalid.'}, status: 401
       end
