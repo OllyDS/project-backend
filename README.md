@@ -21,4 +21,9 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+# Secret
+
+In order to setup the secret, run:
+        `export MY_SUPER_SECRET='*your secret here*'` 
+ in the terminal before running your terminal.
+

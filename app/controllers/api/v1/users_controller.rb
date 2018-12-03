@@ -11,21 +11,21 @@ class Api::V1::UsersController < ApplicationController
     end
   
     def login
-      @user = User.find_by(params[:username])
+      @user = User.find_by(username: params[:username])
       if @user && @user.authenticate(params[:password])
-        render json: {username: @user.username, id: @user.id}
+        render json: {username: @user.username, token: issue_token({id: @user.id})}
       else
-        render json: {error: 'Username/Password invalid.'}, status: 401
+        render json: {error: 'Username/password invalid.'}, status: 401
       end
     end
   
     def validate
-      @user = User.find_by(username: request.headers['Authorization'])
+      @user = get_current_user
       if @user
-        render json: {username: @user.username, id: @user.id}
+       render json: {username: @user.username, token: issue_token({id: @user.id})}
       else
         render json: {error: 'Username/password invalid.'}, status: 401
-      end
+     end
     end
 
     def create
