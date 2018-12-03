@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_30_092454) do
+ActiveRecord::Schema.define(version: 2018_12_03_131526) do
 
   create_table "games", force: :cascade do |t|
     t.string "canvas"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2018_11_30_092454) do
     t.integer "win_streak", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "word"
   end
 
   create_table "guest_games", force: :cascade do |t|
