@@ -29,8 +29,8 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def create
-        @user = User.create(user_params)
-        if @user.valid?
+        @user = User.new(user_params)
+        if @user.save
             render json: @user
         else
             render json: {error: 'Error - Unable to create User.'}, status: 400
@@ -40,7 +40,7 @@ class Api::V1::UsersController < ApplicationController
     private
 
     def user_params
-      params.require(:user).permit(:username, :password, :first_name, :last_name)
+      params.require(:user).permit(:username, :password, :password_confirmation, :first_name, :last_name)
     end
 
 
