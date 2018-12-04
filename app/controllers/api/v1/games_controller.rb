@@ -40,7 +40,7 @@ class Api::V1::GamesController < ApplicationController
     private
 
     def game_params
-    params.require(:game).permit(:canvas, :word, :lives, :win_streak, :current_guesser)
+    params.require(:game).permit(:canvas, :word, :lives, :win_streak, :artist_id)
     end
   
   
