@@ -19,6 +19,16 @@ class Api::V1::UserGamesController < ApplicationController
         end
     end
 
+    def update
+        @user_game = UserGame.find(params[:id])
+        if @user_game
+            @user_game.update(user_game_params)
+            render json: @user_game
+        else
+            render json: {Error: 'Error - Unable to update UserGame'}, status: 400
+        end
+    end
+
     private
 
     def user_game_params
