@@ -20,7 +20,9 @@ class Api::V1::GamesController < ApplicationController
     end
 
     def update
-        if @game.update(game_params.valid?)
+        @game = Game.find(params[:id])
+        if @game
+            @game.update(game_params)
             render json: @game
         else
             render json: {error: 'Error - Unable to update Game.'}, status: 400

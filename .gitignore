@@ -13,6 +13,7 @@ rerun.txt
 pickle-email-*.html
 db/development.sqlite3
 db/seeds.rb
+config/database.yml
 log/development.log
 
 # TODO Comment out this rule if you are OK with secrets being uploaded to the repo
